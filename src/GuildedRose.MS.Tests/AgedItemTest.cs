@@ -30,5 +30,19 @@ namespace GildedRose.MS.Tests
 
             Assert.AreEqual(80, sulfuras.Quality);
         }
+
+        [TestMethod]
+        public void Brie_Quality_Increases()
+        {
+            var updater = new QualityUpdater();
+
+            var brie = new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 };
+
+            updater.Items = new List<Item> { brie };
+
+            updater.UpdateQuality();
+
+            Assert.AreEqual(1, brie.Quality);
+        }
     }
 }
