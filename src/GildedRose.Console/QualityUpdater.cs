@@ -25,12 +25,9 @@ namespace GildedRose.Console
             {
                 if (!IsAged(item) && !IsEvent(item))
                 {
-                    if (item.Quality > MIN_QUALITY)
+                    if (item.Quality > MIN_QUALITY && !IsLegendary(item))
                     {
-                        if (!IsLegendary(item))
-                        {
-                           item.Quality = item.Quality - 1;
-                        }
+                        item.Quality = item.Quality - 1;
                     }
                 }
                 else
@@ -41,20 +38,14 @@ namespace GildedRose.Console
 
                         if (IsEvent(item))
                         {
-                            if (item.SellIn < 11)
+                            if (item.SellIn < 11 )
                             {
-                                if (item.Quality < MAX_QUALITY)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
+                                item.Quality = item.Quality + 1;
                             }
                             
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < MAX_QUALITY)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
+                                item.Quality = item.Quality + 1;
                             }
                         }
                     }
