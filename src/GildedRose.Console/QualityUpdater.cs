@@ -43,13 +43,11 @@ namespace GildedRose.Console
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
-                            }
-
-                            if (item.SellIn < 6)
+                            }else if (item.SellIn < 6)
                             {
                                 if (item.Quality < 50)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    TripleIncrease(item);
                                 }
                             }
                         }
@@ -84,11 +82,21 @@ namespace GildedRose.Console
                     {
                         if (item.Quality < 50)
                         {
-                            item.Quality = item.Quality + 1;
+                            NormalIncrease(item);
                         }
                     }
                 }
             }
+        }
+
+        private static void TripleIncrease(Item item)
+        {
+            item.Quality = item.Quality + 1;
+        }
+
+        private static void NormalIncrease(Item item)
+        {
+            item.Quality = item.Quality + 1;
         }
     }
 }
