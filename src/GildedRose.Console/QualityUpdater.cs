@@ -23,16 +23,16 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (!IsAged(item) && !IsEvent(item))
+                if (item.Quality < MAX_QUALITY)
                 {
-                    if (item.Quality > MIN_QUALITY && !IsLegendary(item))
+                    if (!IsAged(item) && !IsEvent(item))
                     {
-                        item.Quality = item.Quality - 1;
+                        if (item.Quality > MIN_QUALITY && !IsLegendary(item))
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
                     }
-                }
-                else
-                {
-                    if (item.Quality < MAX_QUALITY)
+                    else
                     {
                         item.Quality = item.Quality + 1;
 
