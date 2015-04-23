@@ -13,17 +13,21 @@ namespace GildedRose.Console
 
     public class QualityUpdater
     {
+        private const short MAX_QUALITY = 50;
+        private const short MIN_QUALITY = 0;
+        private const short MIN_SELL_IN = 0;
+    
         public IList<Item> Items { get; set; }
 
         public void UpdateQuality()
         {
             foreach (var item in Items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (!IsAged(item) && !IsEvent(item))
                 {
-                    if (item.Quality > 0)
+                    if (item.Quality > MIN_QUALITY)
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        if (!IsLegendary(item))
                         {
                            item.Quality = item.Quality - 1;
                         }
@@ -31,43 +35,45 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality < 50)
+                    if (item.Quality < MAX_QUALITY)
                     {
                         item.Quality = item.Quality + 1;
 
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (IsEvent(item))
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MAX_QUALITY)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
-                            }else if (item.SellIn < 6)
+                            }
+                            
+                            if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MAX_QUALITY)
                                 {
-                                    TripleIncrease(item);
+                                    item.Quality = item.Quality + 1;
                                 }
                             }
                         }
                     }
                 }
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (!IsLegendary(item))
                 {
                     item.SellIn = item.SellIn - 1;
                 }
 
-                if (item.SellIn < 0)
+                if (item.SellIn < MIN_SELL_IN)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (!IsAged(item))
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (!IsEvent(item))
                         {
-                            if (item.Quality > 0)
+                            if (item.Quality > MIN_QUALITY)
                             {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                                if (!IsLegendary(item))
                                 {
                                     item.Quality = item.Quality - 1;
                                 }
@@ -80,7 +86,7 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (item.Quality < 50)
+                        if (QualityNotYetMax(item))
                         {
                             NormalIncrease(item);
                         }
@@ -89,9 +95,24 @@ namespace GildedRose.Console
             }
         }
 
-        private static void TripleIncrease(Item item)
+        private static bool IsAged(Item item)
         {
-            item.Quality = item.Quality + 1;
+            return item.Name == "Aged Brie";
+        }
+
+        private static bool IsEvent(Item item)
+        {
+            return item.Name == "Backstage passes to a TAFKAL80ETC concert";
+        }
+
+        private static bool IsLegendary(Item item)
+        {
+            return item.Name == "Sulfuras, Hand of Ragnaros";
+        }
+
+        private static bool QualityNotYetMax(Item item)
+        {
+            return item.Quality < MAX_QUALITY;
         }
 
         private static void NormalIncrease(Item item)
