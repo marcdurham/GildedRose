@@ -27,7 +27,7 @@ namespace GildedRose.Console
                 {
                     if (!IsAged(item) && !IsEvent(item))
                     {
-                        if (item.Quality > MIN_QUALITY && !IsLegendary(item))
+                        if (StillHasQuality(item) && !IsLegendary(item))
                         {
                             item.Quality -= 1;
                         }
@@ -62,7 +62,7 @@ namespace GildedRose.Console
                     {
                         if (!IsEvent(item))
                         {
-                            if (item.Quality > MIN_QUALITY)
+                            if (StillHasQuality(item))
                             {
                                 if (!IsLegendary(item))
                                 {
@@ -84,6 +84,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static bool StillHasQuality(Item item)
+        {
+            return item.Quality > MIN_QUALITY;
         }
 
         private static bool IsAged(Item item)
