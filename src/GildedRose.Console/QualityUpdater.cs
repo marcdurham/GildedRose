@@ -59,7 +59,7 @@ namespace GildedRose.Console
                 }
             }
 
-            if (item.SellIn - 1 < MIN_SELL_IN)
+            if (item.SellIn <= MIN_SELL_IN)
             {
                 if (!IsAged(item))
                 {
