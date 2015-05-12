@@ -25,11 +25,11 @@ namespace GildedRose.Console
             {
                 CalculateSellIn(item);
 
-                CalculateQualityAndSellIn(item);
+                CalculateQuality(item);
             }
         }
 
-        private static void CalculateQualityAndSellIn(Item item)
+        private static void CalculateQuality(Item item)
         {
             if (QualityNotYetMax(item))
             {
