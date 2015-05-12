@@ -61,10 +61,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (QualityNotYetMax(item))
-                    {
-                        NormalQualityIncrease(item);
-                    }
+                     NormalQualityIncrease(item);
                 }
             }
         }
@@ -143,7 +140,10 @@ namespace GildedRose.Console
 
         private static void NormalQualityIncrease(Item item)
         {
-            item.Quality += 1;
+            if (QualityNotYetMax(item))
+            {
+                item.Quality += 1;
+            }
         }
     }
 }
