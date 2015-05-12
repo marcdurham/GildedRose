@@ -23,64 +23,69 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (QualityNotYetMax(item))
+                CalculateQualityAndSellIn(item);
+            }
+        }
+
+        private static void CalculateQualityAndSellIn(Item item)
+        {
+            if (QualityNotYetMax(item))
+            {
+                if (!IsAged(item) && !IsEvent(item))
                 {
-                    if (!IsAged(item) && !IsEvent(item))
+                    if (StillHasQuality(item) && !IsLegendary(item))
                     {
-                        if (StillHasQuality(item) && !IsLegendary(item))
+                        item.Quality -= 1;
+                    }
+                }
+                else
+                {
+                    item.Quality += 1;
+
+                    if (IsEvent(item))
+                    {
+                        if (item.SellIn < 11)
                         {
-                            item.Quality -= 1;
+                            item.Quality += 1;
+                        }
+
+                        if (item.SellIn < 6)
+                        {
+                            item.Quality += 1;
+                        }
+                    }
+                }
+            }
+
+            if (!IsLegendary(item))
+            {
+                item.SellIn -= 1;
+            }
+
+            if (item.SellIn < MIN_SELL_IN)
+            {
+                if (!IsAged(item))
+                {
+                    if (!IsEvent(item))
+                    {
+                        if (StillHasQuality(item))
+                        {
+                            if (!IsLegendary(item))
+                            {
+                                item.Quality -= 1;
+                            }
                         }
                     }
                     else
                     {
-                        item.Quality += 1;
-
-                        if (IsEvent(item))
-                        {
-                            if (item.SellIn < 11 )
-                            {
-                                item.Quality += 1;
-                            }
-                            
-                            if (item.SellIn < 6)
-                            {
-                                item.Quality += 1;
-                            }
-                        }
+                        item.Quality -= item.Quality;
                     }
                 }
-
-                if (!IsLegendary(item))
+                else
                 {
-                    item.SellIn -= 1;
-                }
-
-                if (item.SellIn < MIN_SELL_IN)
-                {
-                    if (!IsAged(item))
+                    if (QualityNotYetMax(item))
                     {
-                        if (!IsEvent(item))
-                        {
-                            if (StillHasQuality(item))
-                            {
-                                if (!IsLegendary(item))
-                                {
-                                    item.Quality -= 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            item.Quality -= item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (QualityNotYetMax(item))
-                        {
-                            NormalIncrease(item);
-                        }
+                        NormalIncrease(item);
                     }
                 }
             }
