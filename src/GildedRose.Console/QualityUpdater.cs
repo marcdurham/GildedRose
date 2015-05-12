@@ -64,7 +64,7 @@ namespace GildedRose.Console
                 {
                     if (QualityNotYetMax(item))
                     {
-                        NormalIncrease(item);
+                        NormalQualityIncrease(item);
                     }
                 }
             }
@@ -139,7 +139,7 @@ namespace GildedRose.Console
             return item.Name == "Sulfuras, Hand of Ragnaros";
         }
 
-        private static void NormalIncrease(Item item)
+        private static void NormalQualityIncrease(Item item)
         {
             item.Quality += 1;
         }
