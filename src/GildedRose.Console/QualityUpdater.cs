@@ -31,16 +31,14 @@ namespace GildedRose.Console
 
         private static void CalculateQuality(Item item)
         {
-            if (QualityNotYetMax(item))
+            if (DoesntAgeWell(item))
             {
-                if (DoesntAgeWell(item))
-                {
-                    AgeBadly(item);
-                }
-                else
-                {
-                    AgeWell(item);
-                }
+                AgeBadly(item);
+            }
+
+            if (QualityNotYetMax(item) && !DoesntAgeWell(item))
+            {
+                AgeWell(item);
             }
 
             if (item.SellIn <= MIN_SELL_IN)
