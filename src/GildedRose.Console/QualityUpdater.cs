@@ -23,7 +23,7 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (item.Quality < MAX_QUALITY)
+                if (QualityNotYetMax(item))
                 {
                     if (!IsAged(item) && !IsEvent(item))
                     {
