@@ -29,23 +29,23 @@ namespace GildedRose.Console
                     {
                         if (item.Quality > MIN_QUALITY && !IsLegendary(item))
                         {
-                            item.Quality = item.Quality - 1;
+                            item.Quality -= 1;
                         }
                     }
                     else
                     {
-                        item.Quality = item.Quality + 1;
+                        item.Quality += 1;
 
                         if (IsEvent(item))
                         {
                             if (item.SellIn < 11 )
                             {
-                                item.Quality = item.Quality + 1;
+                                item.Quality += 1;
                             }
                             
                             if (item.SellIn < 6)
                             {
-                                item.Quality = item.Quality + 1;
+                                item.Quality += 1;
                             }
                         }
                     }
@@ -53,7 +53,7 @@ namespace GildedRose.Console
 
                 if (!IsLegendary(item))
                 {
-                    item.SellIn = item.SellIn - 1;
+                    item.SellIn -= 1;
                 }
 
                 if (item.SellIn < MIN_SELL_IN)
@@ -66,13 +66,13 @@ namespace GildedRose.Console
                             {
                                 if (!IsLegendary(item))
                                 {
-                                    item.Quality = item.Quality - 1;
+                                    item.Quality -= 1;
                                 }
                             }
                         }
                         else
                         {
-                            item.Quality = item.Quality - item.Quality;
+                            item.Quality -= item.Quality;
                         }
                     }
                     else
@@ -108,7 +108,7 @@ namespace GildedRose.Console
 
         private static void NormalIncrease(Item item)
         {
-            item.Quality = item.Quality + 1;
+            item.Quality += 1;
         }
     }
 }
