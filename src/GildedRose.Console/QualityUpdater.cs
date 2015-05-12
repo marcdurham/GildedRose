@@ -91,6 +91,11 @@ namespace GildedRose.Console
             return item.Quality > MIN_QUALITY;
         }
 
+        private static bool QualityNotYetMax(Item item)
+        {
+            return item.Quality < MAX_QUALITY;
+        }
+
         private static bool IsAged(Item item)
         {
             return item.Name == "Aged Brie";
@@ -104,11 +109,6 @@ namespace GildedRose.Console
         private static bool IsLegendary(Item item)
         {
             return item.Name == "Sulfuras, Hand of Ragnaros";
-        }
-
-        private static bool QualityNotYetMax(Item item)
-        {
-            return item.Quality < MAX_QUALITY;
         }
 
         private static void NormalIncrease(Item item)
