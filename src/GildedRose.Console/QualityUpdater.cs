@@ -35,10 +35,7 @@ namespace GildedRose.Console
             {
                 if (DoesntAgeWell(item))
                 {
-                    if (QualityIsReducable(item))
-                    {
-                        item.Quality -= 1;
-                    }
+                    AgeBadly(item);
                 }
                 else
                 {
@@ -85,6 +82,14 @@ namespace GildedRose.Console
                         NormalIncrease(item);
                     }
                 }
+            }
+        }
+
+        private static void AgeBadly(Item item)
+        {
+            if (QualityIsReducable(item))
+            {
+                item.Quality -= 1;
             }
         }
 
