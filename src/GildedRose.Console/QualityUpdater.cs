@@ -57,10 +57,7 @@ namespace GildedRose.Console
                 }
             }
 
-            if (!IsLegendary(item))
-            {
-                item.SellIn -= 1;
-            }
+            CalculateSellIn(item);
 
             if (item.SellIn < MIN_SELL_IN)
             {
@@ -88,6 +85,15 @@ namespace GildedRose.Console
                         NormalIncrease(item);
                     }
                 }
+            }
+        }
+
+        private static void CalculateSellIn(Item item)
+        {
+
+            if (!IsLegendary(item))
+            {
+                item.SellIn -= 1;
             }
         }
 
