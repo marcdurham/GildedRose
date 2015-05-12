@@ -39,20 +39,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    item.Quality += 1;
-
-                    if (IsEvent(item))
-                    {
-                        if (item.SellIn < 11)
-                        {
-                            item.Quality += 1;
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            item.Quality += 1;
-                        }
-                    }
+                    AgeWell(item);
                 }
             }
 
@@ -81,6 +68,24 @@ namespace GildedRose.Console
                     {
                         NormalIncrease(item);
                     }
+                }
+            }
+        }
+
+        private static void AgeWell(Item item)
+        {
+            item.Quality += 1;
+
+            if (IsEvent(item))
+            {
+                if (item.SellIn < 11)
+                {
+                    item.Quality += 1;
+                }
+
+                if (item.SellIn < 6)
+                {
+                    item.Quality += 1;
                 }
             }
         }
