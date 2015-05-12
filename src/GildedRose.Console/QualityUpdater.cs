@@ -23,9 +23,9 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                CalculateSellIn(item);
-
                 CalculateQuality(item);
+
+                CalculateSellIn(item);
             }
         }
 
@@ -46,12 +46,12 @@ namespace GildedRose.Console
 
                     if (IsEvent(item))
                     {
-                        if (item.SellIn < (11-1))
+                        if (item.SellIn < 11)
                         {
                             item.Quality += 1;
                         }
 
-                        if (item.SellIn < (6-1))
+                        if (item.SellIn < 6)
                         {
                             item.Quality += 1;
                         }
@@ -59,7 +59,7 @@ namespace GildedRose.Console
                 }
             }
 
-            if (item.SellIn < MIN_SELL_IN)
+            if (item.SellIn - 1 < MIN_SELL_IN)
             {
                 if (!IsAged(item))
                 {
