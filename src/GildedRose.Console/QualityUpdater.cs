@@ -33,7 +33,7 @@ namespace GildedRose.Console
         {
             if (QualityNotYetMax(item))
             {
-                if (!IsAged(item) && !IsEvent(item))
+                if (DoesntAgeWell(item))
                 {
                     if (StillHasQuality(item) && !IsLegendary(item))
                     {
@@ -86,6 +86,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static bool DoesntAgeWell(Item item)
+        {
+            return !IsAged(item) && !IsEvent(item);
         }
 
         private static void CalculateSellIn(Item item)
