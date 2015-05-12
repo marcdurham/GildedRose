@@ -23,6 +23,8 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
+                CalculateSellIn(item);
+
                 CalculateQualityAndSellIn(item);
             }
         }
@@ -44,20 +46,18 @@ namespace GildedRose.Console
 
                     if (IsEvent(item))
                     {
-                        if (item.SellIn < 11)
+                        if (item.SellIn < (11-1))
                         {
                             item.Quality += 1;
                         }
 
-                        if (item.SellIn < 6)
+                        if (item.SellIn < (6-1))
                         {
                             item.Quality += 1;
                         }
                     }
                 }
             }
-
-            CalculateSellIn(item);
 
             if (item.SellIn < MIN_SELL_IN)
             {
@@ -90,7 +90,6 @@ namespace GildedRose.Console
 
         private static void CalculateSellIn(Item item)
         {
-
             if (!IsLegendary(item))
             {
                 item.SellIn -= 1;
