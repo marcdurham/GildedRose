@@ -35,8 +35,7 @@ namespace GildedRose.Console
             {
                 AgeBadly(item);
             }
-
-            if (QualityNotYetMax(item) && !DoesntAgeWell(item))
+            else
             {
                 AgeWell(item);
             }
@@ -72,18 +71,21 @@ namespace GildedRose.Console
 
         private static void AgeWell(Item item)
         {
-            item.Quality += 1;
-
-            if (IsEvent(item))
+            if (QualityNotYetMax(item))
             {
-                if (item.SellIn < 11)
-                {
-                    item.Quality += 1;
-                }
+                item.Quality += 1;
 
-                if (item.SellIn < 6)
+                if (IsEvent(item))
                 {
-                    item.Quality += 1;
+                    if (item.SellIn < 11)
+                    {
+                        item.Quality += 1;
+                    }
+
+                    if (item.SellIn < 6)
+                    {
+                        item.Quality += 1;
+                    }
                 }
             }
         }
