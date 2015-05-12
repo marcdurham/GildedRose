@@ -35,7 +35,7 @@ namespace GildedRose.Console
             {
                 if (DoesntAgeWell(item))
                 {
-                    if (StillHasQuality(item) && !IsLegendary(item))
+                    if (QualityIsReducable(item))
                     {
                         item.Quality -= 1;
                     }
@@ -86,6 +86,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static bool QualityIsReducable(Item item)
+        {
+            return StillHasQuality(item) && !IsLegendary(item);
         }
 
         private static bool DoesntAgeWell(Item item)
