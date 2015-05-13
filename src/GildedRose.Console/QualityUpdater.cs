@@ -46,12 +46,9 @@ namespace GildedRose.Console
                 {
                     if (!IsEvent(item))
                     {
-                        if (StillHasQuality(item))
+                        if (!IsLegendary(item))
                         {
-                            if (!IsLegendary(item))
-                            {
-                                AgeBadly(item);
-                            }
+                            AgeBadly(item);
                         }
                     }
                     else
