@@ -170,6 +170,7 @@ namespace GildedRose.MS.Tests
 
             Assert.AreEqual(3, item.Quality);
         }
+
         [TestMethod]
         public void BackstagePasses_6_Days_Quality_Increases_2()
         {
