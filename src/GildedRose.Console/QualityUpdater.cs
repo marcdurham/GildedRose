@@ -50,7 +50,7 @@ namespace GildedRose.Console
                         {
                             if (!IsLegendary(item))
                             {
-                                item.Quality -= 1;
+                                NormalQualityDecrease(item);
                             }
                         }
                     }
@@ -64,6 +64,11 @@ namespace GildedRose.Console
                      NormalQualityIncrease(item);
                 }
             }
+        }
+
+        private static void NormalQualityDecrease(Item item)
+        {
+            item.Quality -= 1;
         }
 
         private static bool IsLastDayToSell(Item item)
