@@ -40,7 +40,7 @@ namespace GildedRose.Console
                 AgeWell(item);
             }
 
-            if (SellExpired(item))
+            if (LastDayToSell(item))
             {
                 if (!IsAged(item))
                 {
@@ -66,9 +66,9 @@ namespace GildedRose.Console
             }
         }
 
-        private static bool SellExpired(Item item)
+        private static bool LastDayToSell(Item item)
         {
-            return item.SellIn <= MIN_SELL_IN;
+            return item.SellIn == MIN_SELL_IN;
         }
 
         private static void AgeWell(Item item)
