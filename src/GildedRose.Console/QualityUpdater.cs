@@ -37,7 +37,7 @@ namespace GildedRose.Console
             }
             else
             {
-                NormalQualityIncrease(item);
+                AgeWell(item);
             }
 
             if (IsLastDayToSell(item))
@@ -61,7 +61,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                     NormalQualityIncrease(item);
+                     AgeWell(item);
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace GildedRose.Console
             return item.Name == "Sulfuras, Hand of Ragnaros";
         }
 
-        private static void NormalQualityIncrease(Item item)
+        private static void AgeWell(Item item)
         {
             if (QualityNotYetMax(item))
             {
