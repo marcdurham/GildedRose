@@ -42,7 +42,7 @@ namespace GildedRose.Console
 
             if (IsLastDayToSell(item))
             {
-                if (!IsAged(item))
+                if (!AgesWell(item))
                 {
                     if (!IsEvent(item))
                     {
@@ -83,7 +83,7 @@ namespace GildedRose.Console
 
         private static bool DoesntAgeWell(Item item)
         {
-            return !IsAged(item) && !IsEvent(item);
+            return !AgesWell(item) && !IsEvent(item);
         }
 
         private static void CalculateSellIn(Item item)
@@ -104,7 +104,7 @@ namespace GildedRose.Console
             return item.Quality < MAX_QUALITY;
         }
 
-        private static bool IsAged(Item item)
+        private static bool AgesWell(Item item)
         {
             return item.Name == "Aged Brie";
         }
