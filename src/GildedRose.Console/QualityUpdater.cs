@@ -37,7 +37,7 @@ namespace GildedRose.Console
             }
             else
             {
-                AgeWell(item);
+                NormalQualityIncrease(item);
             }
 
             if (IsLastDayToSell(item))
@@ -69,27 +69,6 @@ namespace GildedRose.Console
         private static bool IsLastDayToSell(Item item)
         {
             return item.SellIn == MIN_SELL_IN;
-        }
-
-        private static void AgeWell(Item item)
-        {
-            if (QualityNotYetMax(item))
-            {
-                item.Quality += 1;
-
-                if (IsEvent(item))
-                {
-                    if (item.SellIn < 11)
-                    {
-                        item.Quality += 1;
-                    }
-
-                    if (item.SellIn < 6)
-                    {
-                        item.Quality += 1;
-                    }
-                }
-            }
         }
 
         private static void AgeBadly(Item item)
@@ -148,6 +127,19 @@ namespace GildedRose.Console
             if (QualityNotYetMax(item))
             {
                 item.Quality += 1; ;
+
+                if (IsEvent(item))
+                {
+                    if (item.SellIn < 11)
+                    {
+                        item.Quality += 1;
+                    }
+
+                    if (item.SellIn < 6)
+                    {
+                        item.Quality += 1;
+                    }
+                }
             }
         }
 
