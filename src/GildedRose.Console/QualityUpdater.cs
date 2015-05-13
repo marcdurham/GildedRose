@@ -101,7 +101,7 @@ namespace GildedRose.Console
         {
             if (QualityIsReducable(item))
             {
-                item.Quality -= 1;
+                NormalQualityDecrease(item);
             }
         }
 
@@ -152,7 +152,7 @@ namespace GildedRose.Console
         {
             if (QualityNotYetMax(item))
             {
-                item.Quality += 1;
+                NormalQualityIncrease(item);
             }
         }
     }
