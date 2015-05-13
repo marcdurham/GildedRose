@@ -50,7 +50,7 @@ namespace GildedRose.Console
                         {
                             if (!IsLegendary(item))
                             {
-                                NormalQualityDecrease(item);
+                                AgeBadly(item);
                             }
                         }
                     }
@@ -75,7 +75,7 @@ namespace GildedRose.Console
         {
             if (QualityIsReducable(item))
             {
-                NormalQualityDecrease(item);
+                item.Quality -= 1;
             }
         }
 
@@ -141,11 +141,6 @@ namespace GildedRose.Console
                     }
                 }
             }
-        }
-
-        private static void NormalQualityDecrease(Item item)
-        {
-            item.Quality -= 1;
         }
     }
 }
