@@ -45,12 +45,9 @@ namespace GildedRose.Console
                 item.Quality = MIN_QUALITY;
             };
 
-            if (IsLastDayToSell(item))
+            if (IsLastDayToSell(item) && !IsLegendary(item))
             {
-                if (!IsLegendary(item))
-                {
-                    AgeBadly(item);
-                }
+                AgeBadly(item);
             }
         }
 
