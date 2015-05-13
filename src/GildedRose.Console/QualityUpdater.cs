@@ -66,11 +66,6 @@ namespace GildedRose.Console
             }
         }
 
-        private static void NormalQualityDecrease(Item item)
-        {
-            item.Quality -= 1;
-        }
-
         private static bool IsLastDayToSell(Item item)
         {
             return item.SellIn == MIN_SELL_IN;
@@ -152,8 +147,13 @@ namespace GildedRose.Console
         {
             if (QualityNotYetMax(item))
             {
-                NormalQualityIncrease(item);
+                item.Quality += 1; ;
             }
+        }
+
+        private static void NormalQualityDecrease(Item item)
+        {
+            item.Quality -= 1;
         }
     }
 }
