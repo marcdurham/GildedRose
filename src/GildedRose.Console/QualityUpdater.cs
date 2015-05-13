@@ -42,23 +42,16 @@ namespace GildedRose.Console
 
             if (IsLastDayToSell(item))
             {
-                if (!AgesWell(item))
+                if (!IsEvent(item))
                 {
-                    if (!IsEvent(item))
+                    if (!IsLegendary(item))
                     {
-                        if (!IsLegendary(item))
-                        {
-                            AgeBadly(item);
-                        }
-                    }
-                    else
-                    {
-                        item.Quality = MIN_QUALITY;
+                        AgeBadly(item);
                     }
                 }
                 else
                 {
-                     AgeWell(item);
+                    item.Quality = MIN_QUALITY;
                 }
             }
         }
