@@ -56,7 +56,7 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        item.Quality -= item.Quality;
+                        item.Quality = MIN_QUALITY;
                     }
                 }
                 else
