@@ -123,16 +123,26 @@ namespace GildedRose.Console
         {
             if (IsEvent(item))
             {
-                if (item.SellIn < EVENT_SOON)
+                if (EventIsSoon(item))
                 {
                     item.Quality += 1;
                 }
 
-                if (item.SellIn < EVENT_VERY_SOON)
+                if (EventIsVerySoon(item))
                 {
                     item.Quality += 1;
                 }
             }
+        }
+
+        private static bool EventIsVerySoon(Item item)
+        {
+            return item.SellIn < EVENT_VERY_SOON;
+        }
+
+        private static bool EventIsSoon(Item item)
+        {
+            return item.SellIn < EVENT_SOON;
         }
     }
 }
