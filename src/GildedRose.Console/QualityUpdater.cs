@@ -33,7 +33,7 @@ namespace GildedRose.Console
 
         private static void CalculateQuality(Item item)
         {
-            if (DoesntAgeWell(item))
+            if (DoesntAgeWell(item) && !IsLegendary(item))
             {
                 AgeBadly(item);
             }
@@ -46,11 +46,6 @@ namespace GildedRose.Console
             {
                 item.Quality = MIN_QUALITY;
             };
-
-            if (IsLastDayToSell(item) && !IsLegendary(item))
-            {
-                AgeBadly(item);
-            }
         }
 
         private static bool IsLastDayToSell(Item item)
@@ -62,7 +57,14 @@ namespace GildedRose.Console
         {
             if (QualityIsReducable(item))
             {
-                item.Quality -= 1;
+                if (item.SellIn > 0)
+                {
+                    item.Quality -= 1;
+                }
+                else
+                {
+                    item.Quality -= 2;
+                }
             }
         }
 

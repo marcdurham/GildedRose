@@ -130,6 +130,20 @@ namespace GildedRose.MS.Tests
         }
 
         [TestMethod]
+        public void Vest_Quality_DecreasesBy_2_AfterSellInNegative()
+        {
+            var updater = new QualityUpdater();
+
+            var item = new Item { Name = "+5 Dexterity Vest", SellIn = -1, Quality = 18 };
+
+            updater.Items = new List<Item> { item };
+
+            updater.UpdateQuality();
+
+            Assert.AreEqual(16, item.Quality);
+        }
+
+        [TestMethod]
         public void Vest_SellIn_DecreasesBy_1()
         {
             var updater = new QualityUpdater();
