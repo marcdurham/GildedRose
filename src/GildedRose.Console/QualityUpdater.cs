@@ -115,17 +115,22 @@ namespace GildedRose.Console
             {
                 item.Quality += 1;
 
-                if (IsEvent(item))
-                {
-                    if (item.SellIn < EVENT_SOON)
-                    {
-                        item.Quality += 1;
-                    }
+                AgeEventWell(item);
+            }
+        }
 
-                    if (item.SellIn < EVENT_VERY_SOON)
-                    {
-                        item.Quality += 1;
-                    }
+        private static void AgeEventWell(Item item)
+        {
+            if (IsEvent(item))
+            {
+                if (item.SellIn < EVENT_SOON)
+                {
+                    item.Quality += 1;
+                }
+
+                if (item.SellIn < EVENT_VERY_SOON)
+                {
+                    item.Quality += 1;
                 }
             }
         }
