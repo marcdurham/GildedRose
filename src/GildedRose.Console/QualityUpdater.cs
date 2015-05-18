@@ -16,7 +16,9 @@ namespace GildedRose.Console
         private const short MAX_QUALITY = 50;
         private const short MIN_QUALITY = 0;
         private const short MIN_SELL_IN = 0;
-    
+        private const short EVENT_SOON = 11;
+        private const short EVENT_VERY_SOON = 6;
+
         public IList<Item> Items { get; set; }
 
         public void UpdateQuality()
@@ -115,12 +117,12 @@ namespace GildedRose.Console
 
                 if (IsEvent(item))
                 {
-                    if (item.SellIn < 11)
+                    if (item.SellIn < EVENT_SOON)
                     {
                         item.Quality += 1;
                     }
 
-                    if (item.SellIn < 6)
+                    if (item.SellIn < EVENT_VERY_SOON)
                     {
                         item.Quality += 1;
                     }
