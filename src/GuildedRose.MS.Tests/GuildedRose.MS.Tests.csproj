@@ -51,7 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AgedItemTest.cs" />
+    <Compile Include="EventItemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LegendaryItemTests.cs" />
+    <Compile Include="StandardItemTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GildedRose.Console\GildedRose.Console.csproj">
