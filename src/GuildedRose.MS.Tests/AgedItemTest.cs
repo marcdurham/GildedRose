@@ -20,7 +20,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Brie_Quality_Increases_1()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var brie = new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 };
 
@@ -34,7 +34,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Brie_SellIn_Decreases_1()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var brie = new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 };
 
@@ -48,7 +48,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Brie_Quality_NeverGoesOver_50()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var brie = new Item { Name = "Aged Brie", SellIn = 2, Quality = 50 };
 
@@ -62,7 +62,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Brie_Quality_49_To_50()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var brie = new Item { Name = "Aged Brie", SellIn = 2, Quality = 49 };
 

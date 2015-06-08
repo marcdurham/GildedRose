@@ -12,7 +12,7 @@ namespace GuildedRose.MS.Tests
         [TestMethod]
         public void Sulfuras_Quality_RemainsSame()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var sulfuras = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
 
@@ -26,7 +26,7 @@ namespace GuildedRose.MS.Tests
         [TestMethod]
         public void Sulfuras_SellIn_RemainsSame()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var sulfuras = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 1, Quality = 80 };
 

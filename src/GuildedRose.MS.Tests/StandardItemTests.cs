@@ -20,7 +20,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Vest_Quality_DecreasesBy_1()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
 
@@ -34,7 +34,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Vest_Quality_DecreasesBy_2_AfterSellInZero()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 20 };
 
@@ -48,7 +48,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Vest_Quality_DecreasesBy_2_AfterSellInNegative()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = -1, Quality = 18 };
 
@@ -62,7 +62,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Vest_SellIn_DecreasesBy_1()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
 
@@ -76,7 +76,7 @@ namespace GildedRose.MS.Tests
         [TestMethod]
         public void Vest_Quality_Never_Negative()
         {
-            var updater = new QualityUpdater();
+            var updater = new ItemUpdater();
 
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 0 };
 
