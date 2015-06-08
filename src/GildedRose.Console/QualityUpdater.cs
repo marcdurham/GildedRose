@@ -11,6 +11,7 @@ namespace GildedRose.Console
     using System.Linq;
     using System.Text;
 
+    [System.Runtime.InteropServices.GuidAttribute("5C4A59D9-4E06-4663-9520-D79BE87F6531")]
     public class QualityUpdater
     {
         private const short MAX_QUALITY = 50;

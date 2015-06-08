@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Console", "src\G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildedRose.MS.Tests", "src\GuildedRose.MS.Tests\GuildedRose.MS.Tests.csproj", "{B2434F50-0D92-440B-8264-866D1E4DB1DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard", "Dashboard", "{A397B240-5DC5-40E0-82FD-0871D275E05C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{83ED6752-F297-4A8C-86E0-468542425B84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F928CC23-1B56-46FD-B1F2-FEE28F2B424C} = {A397B240-5DC5-40E0-82FD-0871D275E05C}
+		{B2434F50-0D92-440B-8264-866D1E4DB1DC} = {A397B240-5DC5-40E0-82FD-0871D275E05C}
 	EndGlobalSection
 EndGlobal
