@@ -13,7 +13,7 @@ namespace GildedRose.Console
         private const short EVENT_SOON = 11;
         private const short EVENT_VERY_SOON = 6;
 
-        public void Calculate(Item item)
+        public virtual void Calculate(Item item)
         {
             if (DoesntAgeWell(item) && !IsLegendary(item))
             {
@@ -70,7 +70,7 @@ namespace GildedRose.Console
             return item.Name == "Sulfuras, Hand of Ragnaros";
         }
 
-        private static void AgeWell(Item item)
+        protected static void AgeWell(Item item)
         {
             if (QualityNotYetMax(item))
             {
