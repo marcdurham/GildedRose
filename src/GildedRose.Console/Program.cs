@@ -28,7 +28,7 @@ namespace GildedRose.Console
 
                           };
 
-            app.UpdateQuality();
+            app.Update();
 
             System.Console.ReadKey();
 

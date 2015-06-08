@@ -26,7 +26,7 @@ namespace GildedRose.MS.Tests
 
             updater.Items = new List<Item> { item };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(19, item.Quality);
         }
@@ -40,7 +40,7 @@ namespace GildedRose.MS.Tests
 
             updater.Items = new List<Item> { item };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(18, item.Quality);
         }
@@ -54,7 +54,7 @@ namespace GildedRose.MS.Tests
 
             updater.Items = new List<Item> { item };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(16, item.Quality);
         }
@@ -68,7 +68,7 @@ namespace GildedRose.MS.Tests
 
             updater.Items = new List<Item> { item };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(9, item.SellIn);
         }
@@ -82,7 +82,7 @@ namespace GildedRose.MS.Tests
 
             updater.Items = new List<Item> { item };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(0, item.Quality);
         }

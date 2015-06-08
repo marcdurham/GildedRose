@@ -18,7 +18,7 @@ namespace GuildedRose.MS.Tests
 
             updater.Items = new List<Item> { sulfuras };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(80, sulfuras.Quality);
         }
@@ -32,7 +32,7 @@ namespace GuildedRose.MS.Tests
 
             updater.Items = new List<Item> { sulfuras };
 
-            updater.UpdateQuality();
+            updater.Update();
 
             Assert.AreEqual(1, sulfuras.SellIn);
         }

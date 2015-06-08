@@ -22,7 +22,7 @@ namespace GildedRose.Console
 
         public IList<Item> Items { get; set; }
 
-        public void UpdateQuality()
+        public void Update()
         {
             foreach (var item in Items)
             {
