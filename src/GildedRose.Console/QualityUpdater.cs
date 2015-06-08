@@ -26,7 +26,7 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                CalculateQuality(item);
+                new QualityCalculator().Calculate(item);
 
                 CalculateSellIn(item);
             }
